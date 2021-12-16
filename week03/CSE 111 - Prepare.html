@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<!-- Copyright 2020, Brigham Young University - Idaho. All rights reserved. -->
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSE 111 - Prepare</title>
+    <link rel="icon" type="image/png" href="https://byui-cse.github.io/cse111-course/site/icon.png">
+    <link rel="stylesheet" type="text/css" href="CSE%20111%20-%20Prepare_files/style.css">
+    <link rel="stylesheet" type="text/css" href="CSE%20111%20-%20Prepare_files/vscode.css">
+    <script src="CSE%20111%20-%20Prepare_files/firebase-app.js"></script>
+    <script src="CSE%20111%20-%20Prepare_files/firebase-database.js"></script>
+    <script src="CSE%20111%20-%20Prepare_files/url.js"></script>
+    <script src="CSE%20111%20-%20Prepare_files/urlWrite.js"></script>
+    <script src="CSE%20111%20-%20Prepare_files/color.js"></script>
+    <script src="CSE%20111%20-%20Prepare_files/linenums.js"></script>
+    <script src="CSE%20111%20-%20Prepare_files/highlight.js"></script>
+</head>
+
+<body class="light">
+<header>
+    <div class="colorCtrl" title="Change to dark mode">☾</div>
+    <a class="logo" href="https://www.byui.edu/">
+        <div>BYU</div>
+        <div>Idaho</div>
+    </a>
+    <h2><a href="https://byui.instructure.com/">CSE 111</a> |
+        <a href="https://byui-cse.github.io/cse111-course/index.html">Programming with Functions</a></h2>
+</header>
+<article>
+    <h1>03 Prepare: Writing Functions</h1>
+    <p>Because most useful computer programs are very large, programmers
+    divide their programs into parts. Dividing a program into parts
+    makes it easier to write, debug, and understand the program. A
+    programmer can divide a Python program into modules, classes, and
+    functions. In this lesson and the next, you will learn how to write
+    your own functions.</p>
+
+    <h2>Videos</h2>
+    <p>Watch the following four videos from Microsoft about writing
+    functions:</p>
+
+    <ul class="videos long">
+        <li><div><p><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-29-of-44-Introducing-Functions">Introducing Functions</a> <span class="duration">(10 minutes)</span></p>
+        <iframe src="CSE%20111%20-%20Prepare_files/player.html" allowfullscreen="" title="Python for Beginners [29 of 44] Introducing Functions - Microsoft Channel 9 Video" width="640" height="360"></iframe>
+        </div></li>
+
+        <li><div><p><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-30-of-44-Demo-Functions">Demonstration: Functions</a> <span class="duration">(8 minutes)</span></p>
+        <iframe src="CSE%20111%20-%20Prepare_files/player_002.html" allowfullscreen="" title="Python for Beginners [30 of 44] Demo: Functions - Microsoft Channel 9 Video" width="640" height="360"></iframe>
+        </div></li>
+
+        <li><div><p><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-31-of-44-Parameterized-functions">Parameterized Functions</a> <span class="duration">(7 minutes)</span></p>
+        <iframe src="CSE%20111%20-%20Prepare_files/player_003.html" allowfullscreen="" title="Python for Beginners [31 of 44] Parameterized functions - Microsoft Channel 9 Video" width="640" height="360"></iframe>
+        </div></li>
+
+        <li><div><p><a href="https://channel9.msdn.com/Series/Intro-to-Python-Development/Python-for-Beginners-32-of-44-Demo-Parameterized-Functions">Demonstration: Parameterized Functions</a> <span class="duration">(5 minutes)</span></p>
+        <iframe src="CSE%20111%20-%20Prepare_files/player_004.html" allowfullscreen="" title="Python for Beginners [32 of 44] Demo: Parameterized Functions - Microsoft Channel 9 Video" width="640" height="360"></iframe>
+        </div></li>
+    </ul>
+
+    <h2>Concepts</h2>
+    <p>Here are the Python programming concepts and topics that you
+    should learn during this lesson.</p>
+
+    <h3>What Is a Function?</h3>
+    <p>A <dfn>function</dfn> is a group of statements that together
+    perform one task. Broadly speaking, there are four types of
+    functions in Python which are:</p>
+    <ol>
+        <li><div>Built-in functions</div></li>
+        <li><div>Standard library functions</div></li>
+        <li><div>Third-party functions</div></li>
+        <li><div>User-defined functions</div></li>
+    </ol>
+
+    <p>In the previous lesson, you learned how to call the first two
+    types of functions. In lesson&nbsp;5, you will learn how to install
+    third-party modules and call third-party functions. In this lesson,
+    you will learn how to write and call user-defined
+    functions.</p>
+
+    <h3>What Is a User-Defined Function?</h3>
+    <p>A <dfn>user-defined function</dfn> is a function that is not a
+    built-in function, a standard function, or a third-party function. A
+    user-defined function is written by a programmer like yourself as
+    part of a program. For some students the term "user-defined
+    function" is confusing because the user of a program doesn't define
+    the function. Instead, the programmer (you) define user-defined
+    functions. Perhaps a more correct term is programmer-defined
+    function. Writing user-defined functions has several advantages,
+    including:</p>
+    <ol>
+        <li><div>making your code more reusable</div></li>
+        <li><div>making your code easier to understand and debug</div></li>
+        <li><div>making your code easier to change and add
+        capabilities</div></li>
+    </ol>
+
+    <h3>How to Write a User-Defined Function</h3>
+    <p>To write a user-defined function in Python, simply type code
+    that matches this template:</p>
+
+<div class="pre"><pre class="python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> </span><var><span class="hljs-function"><span class="hljs-title">function_name</span></span></var><span class="hljs-function">(</span><var><span class="hljs-function"><span class="hljs-params">param1</span></span></var><span class="hljs-function"><span class="hljs-params">, </span></span><var><span class="hljs-function"><span class="hljs-params">param2</span></span></var><span class="hljs-function"><span class="hljs-params">, … </span></span><var><span class="hljs-function"><span class="hljs-params">paramN</span></span></var><span class="hljs-function">):</span>
+    <span class="hljs-string">"""</span><var><span class="hljs-string">documentation string</span></var><span class="hljs-string">"""</span>
+    <var>statement1</var>
+    <var>statement2</var>
+        ⋮
+    <var>statementN</var>
+    <span class="hljs-keyword">return</span> <var>value</var></pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>The first line of a function is called the <dfn>header</dfn> or
+    <dfn>signature</dfn>, and it includes the following:
+    </p><ol>
+        <li><div>the keyword <code>def</code> (which is an
+        abbreviation for "define")</div></li>
+        <li><div>the function name</div></li>
+        <li><div>the parameter list (with the parameters separated
+        by commas)</div></li>
+    </ol>
+
+    <p>Here is the header for a function named <code>draw_circle</code>
+    that takes three parameters named <code>x</code>, <code>y</code>,
+    and <code>radius</code>:</p>
+
+<div class="pre"><pre class="python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_circle</span>(<span class="hljs-params">x, y, radius</span>):</span></pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>You could read the previous line of code as, "Define a function
+    named <code>draw_circle</code> that takes three parameters named
+    <var>x</var>, <var>y</var>, and <var>radius</var>."</p>
+
+    <p>The <dfn>function name</dfn> must start with a letter or the
+    underscore (_). The rest of the name must be made of letters, digits
+    (0–9), or the underscore. A function name cannot include spaces or
+    other punctuation. A function name should be meaningful and should
+    describe briefly what the function does. Well-named functions often
+    start with a verb.</p>
+
+    <p>The statements inside a function are called the <dfn>body</dfn>
+    of the function. Just like other block statements, such as
+    <code>if</code>, <code>else</code>, <code>while</code>, and
+    <code>for</code>, all of which end with a colon (:), you must indent
+    the statements inside the body of a function. The body of a function
+    should begin with a <dfn>documentation string</dfn> which is a
+    triple quoted string that describes the function's purpose,
+    parameters and return value. The body of a function may contain as
+    many statements as you wish to write inside of it. However, it is a
+    good idea to limit functions to less than 20 lines of code.</p>
+
+    <p>Example&nbsp;1 contains a function named
+    <code>print_cylinder_volume()</code> with no parameters that gets
+    two numbers from the user:&nbsp; <var>radius</var> and
+    <var>height</var> and uses those numbers to compute the volume of a
+    cylinder and then prints the volume for the user to see.</p>
+
+<div class="pre" id="ex1">
+<pre class="python hljs"><span class="hljs-comment"># Example 1</span>
+
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-comment"># Define a function named print_cylinder_volume.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_cylinder_volume</span>():</span>
+    <span class="hljs-string">"""Compute and print the volume of a cylinder.
+    Parameters: none
+    Return: nothing
+    """</span>
+    <span class="hljs-comment"># Get the radius and height from the user.</span>
+    radius = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the radius of a cylinder: "</span>))
+    height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the height of a cylinder: "</span>))
+
+    <span class="hljs-comment"># Compute the volume of the cylinder.</span>
+    volume = math.pi * radius**<span class="hljs-number">2</span> * height
+
+    <span class="hljs-comment"># Print the volume of the cylinder.</span>
+    print(<span class="hljs-string">f"Volume: <span class="hljs-subst">{volume:<span class="hljs-number">.2</span>f}</span>"</span>)</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>Because the <code>print_cylinder_volume</code> function in
+    example&nbsp;1 doesn't accept parameters, it must be called without
+    any arguments like this:</p>
+
+<div class="pre"><pre class="python hljs">    print_cylinder_volume()</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <h3>How to Make a User-Defined Function Reusable</h3>
+    <p>Because the <code>print_cylinder_volume</code> function in
+    example&nbsp;1 gets input from a user and prints its results to a
+    terminal window, it can be used only in a program that runs when a
+    user is present. It cannot be used in a program that runs
+    automatically and gets input from a file or the network or a sensor.
+    In other words, the <code>print_cylinder_volume</code> function in
+    example&nbsp;1 is not reusable in other programs. The most
+    <dfn>reusable functions</dfn> are ones that take parameters, perform
+    calculations, and return a value but <em>do not perform user input
+    and output</em>.</p>
+
+    <p id="param">The parameter list in a function's header contains
+    data stored in variables that the function needs to complete its
+    task. A <dfn>parameter</dfn> is a variable whose value comes from
+    outside the function. One way to get input into a function is to ask
+    the user for input by calling the built-in Python <code>input</code>
+    function. Another way to get input into a function is through the
+    function's parameters. Getting input through parameters is much more
+    flexible than asking the user for input because the input through
+    parameters can come from the user or a file on a hard drive or the
+    network or a sensor or even another function.</p>
+
+    <p>Example&nbsp;2 contains another version of the
+    <code>print_cylinder_volume</code> function. This second version
+    doesn't get the radius and height from the user. Instead, it gets
+    input through its two parameters named <var>radius</var> and
+    <var>height</var>.</p>
+
+<div class="pre" id="ex2">
+<pre class="python hljs"><span class="hljs-comment"># Example 2</span>
+
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-comment"># Define a function named print_cylinder_volume.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_cylinder_volume</span>(</span><em><span class="hljs-function"><span class="hljs-params">radius</span></span></em><span class="hljs-function"><span class="hljs-params">, </span></span><em><span class="hljs-function"><span class="hljs-params">height</span></span></em><span class="hljs-function">):</span>
+    <span class="hljs-string">"""Compute and print the volume of a cylinder.
+    Parameters
+        radius: the radius of the cylinder
+        height: the height of the cylinder
+    Return: nothing
+    """</span>
+    <span class="hljs-comment"># Compute the volume of the cylinder.</span>
+    volume = math.pi * radius**<span class="hljs-number">2</span> * height
+
+    <span class="hljs-comment"># Print the volume of the cylinder.</span>
+    print(volume)</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>Because the second version of <code>print_cylinder_volume</code>
+    function accepts two parameters, it must be called with two
+    arguments like this:</p>
+
+<div class="pre"><pre class="python hljs">    print_cylinder_volume(<span class="hljs-number">2.5</span>, <span class="hljs-number">4.1</span>)</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>To <dfn>return</dfn> a result from a function, simply type the
+    keyword <code>return</code> followed by whatever result you want
+    returned to the calling function. Example&nbsp;3 contains a third
+    version of the cylinder volume function. Notice that the version in
+    example&nbsp;3 returns the volume instead of printing it, which
+    makes the function more reusable. Notice also in example&nbsp;3 that
+    we changed the name of the function from
+    <code>print_cylinder_volume</code> to
+    <code>compute_cylinder_volume</code> because this version doesn't
+    print the volume but instead returns it.</p>
+
+<div class="pre" id="ex3">
+<pre class="python hljs"><span class="hljs-comment"># Example 3</span>
+
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-comment"># Define a function named computer_cylinder_volume.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compute_cylinder_volume</span>(<span class="hljs-params">radius, height</span>):</span>
+    <span class="hljs-string">"""Compute and return the volume of a cylinder.
+    Parameters
+        radius: the radius of the cylinder
+        height: the height of the cylinder
+    Return: the volume of the cylinder
+    """</span>
+    <span class="hljs-comment"># Compute the volume of the cylinder.</span>
+    volume = math.pi * radius**<span class="hljs-number">2</span> * height
+
+    <span class="hljs-comment"># Return the volume of the cylinder so that the</span>
+    <span class="hljs-comment"># volume can be used somewhere else in the program.</span>
+    <em><span class="hljs-keyword">return</span> volume</em></pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>Many functions that you've used in the past such as
+    <code>input</code>, <code>float</code>, and <code>round</code>,
+    return a result. When a function returns a result, we usually write
+    code to store that returned result in a variable to use later in the
+    program like this:</p>
+
+<div class="pre"><pre class="python hljs">    <em>text =</em> <span class="hljs-built_in">input</span>(<span class="hljs-string">"Please enter your name: "</span>)</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>Because the <code>compute_cylinder_volume</code> function in
+    example&nbsp;3 accepts two parameters and returns a value, it
+    could be called like this:</p>
+
+<div class="pre"><pre class="python hljs">     volume = compute_cylinder_volume(<span class="hljs-number">2.5</span>, <span class="hljs-number">4.1</span>)</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <h3>The User-Defined Function Named <code>main</code></h3>
+    <p>In all previous Python programs that you wrote in CSE&nbsp;110
+    and&nbsp;111, you wrote statements that were not in a function like
+    the simple program in example&nbsp;4.
+
+</p><div class="pre" id="ex4"><pre class="linenums"><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span></pre>
+<pre class="python hljs"><span class="hljs-comment"># Example 4</span>
+
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-comment"># Get the radius and height from the user.</span>
+radius = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the radius of a cylinder: "</span>))
+height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the height of a cylinder: "</span>))
+
+<span class="hljs-comment"># Compute the volume of the cylinder.</span>
+volume = math.pi * radius**<span class="hljs-number">2</span> * height
+
+<span class="hljs-comment"># Print the volume of the cylinder.</span>
+print(<span class="hljs-string">f"Volume: <span class="hljs-subst">{volume:<span class="hljs-number">.2</span>f}</span>"</span>)</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+<pre class="console" data-for="ex4" style="width: 593.317px;" title="Terminal Window">&gt; python example_4.py
+Enter the radius in centimeters: <span class="input" title="User input">3</span>
+Enter the height in centimeters: <span class="input" title="User input">8</span>
+Volume: 226.19</pre>
+
+    <p>Writing statements outside a function can lead to poor
+    organization within a large program. Professional software
+    developers write statements inside a function whenever possible.
+    Beginning with this lesson, we will write nearly all statements
+    inside a user-defined function. Also, each program will have a
+    user-defined function named <code>main</code> which will contain the
+    beginning statements of the program. In addition, each program will
+    have one or more user-defined functions that perform calculations
+    and other useful work and return a value to the call point.
+    Example&nbsp;5 contains the same Python program as example&nbsp;4
+    except most of the statements are inside a user-defined function
+    named <code>main</code>.</p>
+
+<div class="pre" id="ex5"><pre class="linenums"><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span></pre>
+<pre class="python hljs"><span class="hljs-comment"># Example 5</span>
+
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-comment"># Define a function named main.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>
+    <span class="hljs-comment"># Get the radius and height from the user.</span>
+    radius = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the radius of a cylinder: "</span>))
+    height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the height of a cylinder: "</span>))
+
+    <span class="hljs-comment"># Compute the volume of the cylinder.</span>
+    volume = math.pi * radius**<span class="hljs-number">2</span> * height
+
+    <span class="hljs-comment"># Print the volume of the cylinder.</span>
+    print(<span class="hljs-string">f"Volume: <span class="hljs-subst">{volume:<span class="hljs-number">.2</span>f}</span>"</span>)
+
+<span class="hljs-comment"># Start this program by</span>
+<span class="hljs-comment"># calling the main function.</span>
+main()</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+<pre class="console" data-for="ex5" style="width: 632.05px;" title="Terminal Window">&gt; python example_5.py
+Enter the radius in centimeters: <span class="input" title="User input">3</span>
+Enter the height in centimeters: <span class="input" title="User input">8</span>
+Volume: 226.19</pre>
+
+    <p>Notice the call to the <code>main</code> function at
+    <span class="cross" data-ref="ex5" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">line&nbsp;19</span> in
+    example&nbsp;5. Without that call to the <code>main</code> function,
+    when we run the program, the program will not do anything. All of
+    your future programs in CSE&nbsp;111 will have a user-defined
+    function named <code>main</code> and will have a call to
+    <code>main</code> at the bottom of the program.</p>
+
+    <h3>A Complete Program with a Reusable User-Defined Function</h3>
+    <p>If you look closely at the code in examples&nbsp;1 and&nbsp;5,
+    you will realize that both programs have the same problem, namely
+    both the <code>print_cylinder_volume</code> function in
+    example&nbsp;1 and the <code>main</code> function in example&nbsp;5
+    are not reusable because both of them get input from a user and
+    print to a terminal window. A better way to write the program in
+    examples&nbsp;1 and&nbsp;5 is to separate the program into two
+    functions, one named <code>main</code> and one named
+    <code>compute_cylinder_volume</code> as shown in example&nbsp;6.
+
+    </p><p>Example&nbsp;6 contains a complete program with two functions,
+    the first named <code>compute_cylinder_volume</code>
+    at <span class="cross" data-ref="ex6" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">line&nbsp;6</span> and the
+    second named <code>main</code>
+    at <span class="cross" data-ref="ex6" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">line&nbsp;24</span>.
+    At <span class="cross" data-ref="ex6" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">line&nbsp;31</span>,
+    the <code>main</code> function calls the
+    <code>compute_cylinder_volume</code> function. Notice that the
+    <code>compute_cylinder_volume</code> function gets its input through
+    parameters and returns a value which makes this function reusable in
+    other programs, including programs that run without a user.</p>
+
+<div class="pre" id="ex6"><pre class="linenums"><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span></pre>
+<pre class="python hljs"><span class="hljs-comment"># Example 6</span>
+
+<span class="hljs-keyword">import</span> math
+
+<span class="hljs-comment"># Define a function that accepts two parameters.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compute_cylinder_volume</span>(<span class="hljs-params">radius, height</span>):</span>
+    <span class="hljs-string">"""Compute and print the volume of a cylinder.
+    Parameters
+        radius: the radius of the cylinder
+        height: the height of the cylinder
+    Return: the volume of the cylinder
+    """</span>
+    <span class="hljs-comment"># Compute the volume of the cylinder.</span>
+    volume = math.pi * radius**<span class="hljs-number">2</span> * height
+
+    <span class="hljs-comment"># Return the volume of the cylinder so that the</span>
+    <span class="hljs-comment"># volume can be used somewhere else in the program.</span>
+    <span class="hljs-comment"># The returned result will be available wherever</span>
+    <span class="hljs-comment"># this function was called.</span>
+    <span class="hljs-keyword">return</span> volume
+
+
+<span class="hljs-comment"># Define the main function.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>
+    <span class="hljs-comment"># Create two variables to hold the radius and height.</span>
+    radius = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the radius of a cylinder: "</span>))
+    height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the height of a cylinder: "</span>))
+
+    <span class="hljs-comment"># Call the compute_cylinder_volume function and store</span>
+    <span class="hljs-comment"># its return value in a variable to use later.</span>
+    <em>volume = compute_cylinder_volume(radius, height)</em>
+
+    <span class="hljs-comment"># Print the volume of the cylinder.</span>
+    print(<span class="hljs-string">f"Volume: <span class="hljs-subst">{volume:<span class="hljs-number">.2</span>f}</span>"</span>)
+
+
+<span class="hljs-comment"># Start this program by</span>
+<span class="hljs-comment"># calling the main function.</span>
+main()</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+<pre class="console" data-for="ex6" style="width: 632.05px;" title="Terminal Window">&gt; python example_6.py
+Enter the radius in centimeters: <span class="input" title="User input">3</span>
+Enter the height in centimeters: <span class="input" title="User input">8</span>
+Volume: 226.19</pre>
+
+    <h3>Storing a Returned Value</h3>
+    <p>While it's usually a good practice, you don't <em>have</em> to
+    store the value that is returned from a function in a variable.
+    Sometimes you will see it used directly as shown in example&nbsp;7 at
+    lines <span class="cross" data-ref="ex7" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">11,&nbsp;15, and&nbsp;17</span>.
+
+</p><div class="pre" id="ex7"><pre class="linenums"><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span></pre>
+<pre class="python hljs"><span class="hljs-comment"># Example 7</span>
+
+<span class="hljs-comment"># Define the main function.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>
+    <span class="hljs-comment"># Create two variables to hold the radius and height.</span>
+    radius = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the radius in centimeters: "</span>))
+    height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the height in centimeters: "</span>))
+
+    <span class="hljs-comment"># Call the compute_cylinder_volume function</span>
+    <span class="hljs-comment"># and immediately print its return value.</span>
+    print( <em>compute_cylinder_volume(radius, height)</em> )
+
+    <span class="hljs-comment"># Call the compute_cylinder_volume function again</span>
+    <span class="hljs-comment"># and use its return value in an if statement.</span>
+    <span class="hljs-keyword">if</span> <em>compute_cylinder_volume(radius, height)</em> &lt; <span class="hljs-number">1000</span>:
+        print(<span class="hljs-string">"That cylinder holds less than a liter."</span>)
+    <span class="hljs-keyword">elif</span> <em>compute_cylinder_volume(radius, height)</em> &gt; <span class="hljs-number">1000</span>:
+        print(<span class="hljs-string">"That cylinder holds more than a liter."</span>)
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">"That cylinder holds exactly one liter."</span>)
+
+
+<span class="hljs-comment"># Start this program by</span>
+<span class="hljs-comment"># calling the main function.</span>
+main()</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+<pre class="console" data-for="ex7" style="width: 641.733px;" title="Terminal Window">&gt; python example_7.py
+Enter the radius in centimeters: <span class="input" title="User input">3</span>
+Enter the height in centimeters: <span class="input" title="User input">8</span>
+226.194671
+That cylinder holds less than a liter.</pre>
+
+    <p>Notice in example&nbsp;7, there are three statements that call
+    the <code>compute_cylinder_volume</code> function, one at
+    <span class="cross" data-ref="ex7" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">line&nbsp;11</span>
+    to print the volume, another at
+    <span class="cross" data-ref="ex7" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">line&nbsp;15</span>
+    to check if the volume is less than a liter, and yet another at
+    <span class="cross" data-ref="ex7" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">line&nbsp;17</span>
+    to check if the volume is greater than a liter. Every time the
+    computer calls a function, the computer will execute the code that
+    is inside that function. In example&nbsp;7, because the arguments
+    are the same at lines
+    <span class="cross" data-ref="ex7" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">11,&nbsp;15 and&nbsp;17</span>,
+    the returned result will be the same in all three cases. So it would
+    be faster to save the result in a variable and reuse the variable
+    instead, as shown in example&nbsp;8 at lines
+    <span class="cross" data-ref="ex8" title="Move mouse over to turn highlights on.
+Click to keep highlights on.">11,&nbsp;13,&nbsp;15,
+    and&nbsp;17</span>.</p>
+
+<div class="pre" id="ex8"><pre class="linenums"><span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span>
+<span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span></pre>
+<pre class="python hljs"><span class="hljs-comment">#Example 8</span>
+
+<span class="hljs-comment"># Define the main function.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>
+    <span class="hljs-comment"># Create two variables to hold the radius and height.</span>
+    radius = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the radius in centimeters: "</span>))
+    height = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">"Enter the height in centimeters: "</span>))
+
+    <span class="hljs-comment"># Call the compute_cylinder_volume function and store</span>
+    <span class="hljs-comment"># its return value in a variable to use later.</span>
+    <em>volume =</em> compute_cylinder_volume(radius, height)
+
+    print(<span class="hljs-string">f"The volume is <span class="hljs-subst">{</span></span><em><span class="hljs-string"><span class="hljs-subst">volume</span></span></em><span class="hljs-string"><span class="hljs-subst">:<span class="hljs-number">.2</span>f}</span> cubic centimeters."</span>)
+
+    <span class="hljs-keyword">if</span> <em>volume</em> &lt; <span class="hljs-number">1000</span>:
+        print(<span class="hljs-string">"That cylinder holds less than a liter."</span>)
+    <span class="hljs-keyword">elif</span> <em>volume</em> &gt; <span class="hljs-number">1000</span>:
+        print(<span class="hljs-string">"That cylinder holds more than a liter."</span>)
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">"That cylinder holds exactly one liter."</span>)
+
+
+<span class="hljs-comment"># Start this program by</span>
+<span class="hljs-comment"># calling the main function.</span>
+main()</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+<pre class="console" data-for="ex8" style="width: 641.733px;" title="Terminal Window">&gt; python example_8.py
+Enter the radius in centimeters: <span class="input" title="User input">3</span>
+Enter the height in centimeters: <span class="input" title="User input">8</span>
+The volume is 226.19 cubic centimeters.
+That cylinder holds less than a liter.</pre>
+
+    <h3>What Happens When the Computer Calls a Function?</h3>
+    <p>Some students have trouble visualizing what happens when the
+    computer calls (executes) a function. The following code example is
+    a complete program that includes several function calls. The green
+    arrows in the example code show how the computer executes statements
+    in one location and then jumps to execute statements in another
+    function. The blue arrows show how data flows from arguments into
+    parameters and from a returned result to a variable. The circled
+    numbers show the order in which the events happen in the
+    computer.</p>
+
+    <img src="CSE%20111%20-%20Prepare_files/call.png" style="margin-left:2em" alt="A diagram showing a call to a function and a value returned from that function" title="A diagram showing a call to a function and a value returned from that function">
+<!--
+<div class="pre" id="ex9"><pre class="python">
+import math
+
+<b>def main()</b>:
+    """Get the length of each side of a triangle,
+    call the triangle_area function, and print
+    the area for the user to see.
+    """
+    print("This program computes the area of a triangle.")
+    print("Enter the length of each side:")
+    side1 = float(input())
+    side2 = float(input())
+    side3 = float(input())
+    <b>triarea = triangle_area(side1, side2, side3)</b>
+    print(f"The area is {triarea}")
+
+
+<b>def triangle_area(a, b, c)</b>:
+    """Compute and return the area of a
+    triangle with side lengths a, b, and c.
+    """
+    s = (a + b + c) / 2
+    area = math.sqrt(s * (s-a) * (s-b) * (s-c))
+    <b>return area</b>
+
+
+# Start this program by
+# calling the main function.
+<b>main()</b></pre></div>
+-->
+
+    <p>A computer will execute the statements in the previous example in
+    the following order:</p>
+    <ol style="list-style-type:upper-alpha">
+        <li><div>The statement at (1) is not inside a function, so
+        the computer executes it when the program begins. The
+        statement at (1) is a call to the <code>main</code> function
+        which causes the computer to begin executing the statements
+        inside <code>main</code> at (2).</div></li>
+
+        <li><div>At (2), the computer prints a description of the
+        program and gets three numbers from the user.</div></li>
+
+        <li><div>The statement at (3) is a call to the
+        <code>triangle_area</code> function which causes the
+        computer to copy the values in the arguments
+        <var>side1</var>, <var>side2</var>, and <var>side3</var>
+        into the parameters <var>a</var>, <var>b</var>, and
+        <var>c</var>, respectively and then begin executing the
+        statements inside the <code>triangle_area</code> function at
+        (5).</div></li>
+
+        <li><div>At (5), the computer computes the area of a
+        triangle.</div></li>
+
+        <li><div>The statement at (6) is a return statement which
+        causes the computer to stop executing the
+        <code>triangle_area</code> function, to return the computed
+        area to the call point at (3), and to resume executing
+        statements at the call point.</div></li>
+
+        <li><div>At the call point (3), the computer stores the
+        returned value in the <var>triarea</var>
+        variable.</div></li>
+
+        <li><div>At (8), the computer prints the value that is in
+        the <var>triarea</var> variable for the user to see. This is
+        the last statement in the <code>main</code> function, so
+        after executing it, the computer resumes executing the
+        statements after the call point (1) to
+        <code>main</code>.</div></li>
+
+        <li><div>At (9), there are no more statements after the call
+        to <code>main</code>, so the computer terminates the
+        program.</div></li>
+    </ol>
+
+    <p>The most reusable functions are ones that take parameters,
+    perform calculations, and return a value but <em>do not perform user
+    input and output</em>. In the previous code example, there are two
+    functions: <code>main</code> and <code>triangle_area</code>. The
+    <code>main</code> function is certainly useful in this program, but
+    it is not reusable in other programs because it gets user input and
+    prints the result for the user to see. The
+    <code>triangle_area</code> function is very reusable in another
+    program because it doesn't get user input or print output. Instead,
+    it takes three parameters, performs a calculation, and returns the
+    result to the calling function. The <code>triangle_area</code>
+    function is so reusable that it could be included in a library of
+    functions that compute the area and volume of 2-D and 3-D geometric
+    shapes.</p>
+
+    <h2>Summary</h2>
+    <p>A function is a group of statements that together perform one
+    task. A user-defined function is a function written by a programmer
+    like you. To write a user-defined function, write code that follows
+    this template:</p>
+
+<div class="pre"><pre class="python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> </span><var><span class="hljs-function"><span class="hljs-title">function_name</span></span></var><span class="hljs-function">(</span><var><span class="hljs-function"><span class="hljs-params">param1</span></span></var><span class="hljs-function"><span class="hljs-params">, </span></span><var><span class="hljs-function"><span class="hljs-params">param2</span></span></var><span class="hljs-function"><span class="hljs-params">, … </span></span><var><span class="hljs-function"><span class="hljs-params">paramN</span></span></var><span class="hljs-function">):</span>
+    <span class="hljs-string">"""</span><var><span class="hljs-string">documentation string</span></var><span class="hljs-string">"""</span>
+    <var>statement1</var>
+    <var>statement2</var>
+        ⋮
+    <var>statementN</var>
+    <span class="hljs-keyword">return</span> <var>value</var></pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>To call a user-defined function, write code that follows this
+    template:</p>
+<div class="pre"><pre class="python hljs"><var>variable_name</var> = <var>function_name</var>(<var>arg1</var>, <var>arg2</var>, … <var>argN</var>)</pre><button type="button" title="Copy code to the clipboard" class="copy"><img src="CSE%20111%20-%20Prepare_files/copy.png" alt="Copy code to the clipboard"></button></div>
+
+    <p>The most reusable functions are ones that take parameters,
+    perform calculations, and return a value but <em>do not perform user
+    input and output</em>. All of your future programs in CSE&nbsp;111
+    will have a user-defined function named <code>main</code> and will
+    have a call to <code>main</code> at the bottom of the program.</p>
+
+    <p><strong>It is extremely important that you can write and call
+    functions.</strong> After watching the videos and reading the
+    concepts related to writing a function, if the concepts still seem
+    confusing or vague to you, watch the videos and read the list of
+    concepts <strong>again</strong>.</p>
+</article>
+<footer>
+    <small>Copyright © 2020, Brigham Young University - Idaho. All
+    rights reserved.</small>
+</footer>
+
+
+</body></html>

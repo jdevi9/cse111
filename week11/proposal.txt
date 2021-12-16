@@ -1,0 +1,35 @@
+Significant Program Proposal
+
+(This is a proposal. All proposals are written with our best knowledge
+at the beginning of a project. As we progress from the beginning to the
+end of a project, we gain more knowledge, and some of the ideas we
+proposed change. This is part of completing any project and is fine.
+However, we still must write a proposal so that our teachers or
+supervisors know what we intend to do. Please answer each of the
+following questions to the best of your knowledge.)
+
+1. What is the title of your program?
+Coder & Decoder 
+
+2. What real world problem will your program address or help to solve?
+With this you can choose between 3 different types of ciphers. A Caeser cihper, a ROT13 cipher and a Vingere cipher. 
+You can then choose to code or decode a messge for each kind. This will be helpful for me in generating a password to use on 
+different accounts. 
+
+3. What will you learn from developing this program?
+I will get more practice using "for" loops, iterating through arrays, converting letters to numbers to perform math on text and 
+practicing a brute-force cryptanalysis algorithm.
+
+4. What Python modules will your program use? (Some examples are: csv,
+datetime, functools, matplotlib, math, pandas, pytest, random, requests,
+and tkinter.)
+I will be using pytest and pyperclip. However, I am thinking of making a nice GUI to go with the program, if I can learn it. 
+
+5. Will you separate your Python program into functions that each
+perform a single task?
+Each cipher coding will be its own function. Also the decoding will be its own funciton. There will be a funciton for the input of 
+the messages and output. 
+
+6. Will you write test functions to test many of your program functions?
+I am going to implement a test for each function. Mostly it will be a test to assert a certain combination works given the parameters. 
+

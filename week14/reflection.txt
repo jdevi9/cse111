@@ -1,0 +1,36 @@
+Please take a few minutes to reflect on your experience in CSE 111 and
+think about the challenges, successes, and all that you've learned
+along the way.
+
+
+Now, please respond thoroughly (1 - 2 paragraphs for each question) to
+the following questions.
+
+1. Describe an experience you had this semester where you saw the power of
+functions.
+
+I think when it really stood out to me the power of functions was during week 5 and 6 with the 
+sentences program. Having each part of the sentence broken out to its own function really helped 
+me see how beneficial it is to take the time to break things out and then have all those pieces come 
+together. What's nice, is if I have a project that requires something similar, I don't have to hunt for 
+it. I can open up that program and extract that a specific function.
+
+
+2. In your judgment, what is the value of test functions?
+
+Test functions are good to make sure things are working as they should. Especially, as you getting into longer
+and more complex code, it's nice to write a simple function that will make sure that you're getting the right 
+answer at the end. So instead of having to run the program a million times with each change, you can easily 
+run a test function to assert that everything is working to how are expecting it to.
+
+
+3. Describe your process for troubleshooting and fixing a program that
+has a problem. What is one thing you can do to improve your process?
+
+When I need to troubleshoot I first look at the error code and research it if needed. 
+Then once I know the potential problem, I run the code in debugging mode with several 
+breakpoints along the way. I go line by line to see where I can spot the mistake if it's 
+obvious. I'm not sure what I can improve on, but I will try and build test-functions as I 
+go. For instance, build a function that put together a test-function to go with it. 
+I think that would make it a faster and easier process. 
+
